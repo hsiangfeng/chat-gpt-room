@@ -8,5 +8,5 @@
 
 1. 請先註冊 [OpenAI 帳號](https://platform.openai.com) 並取得 API Key
 2. 打開 all.js 填寫 API Key
-3. 使用模擬伺服器套件 [live-server](https://www.npmjs.com/package/live-server) 來開啟 index.html
+3. 使用模擬伺服器套件 live-server 之類的套件來開啟 index.html
 4. 開始聊天吧！
