@@ -93,5 +93,6 @@ form.addEventListener('submit', async (event) => {
   chatInputElement.value = '';
 
   chatElement.innerHTML = chatMessagesTemplate(messages).join('');
+  chatElement.scrollTop = chatElement.scrollHeight;
   chatInputElement.disabled = false;
 });
