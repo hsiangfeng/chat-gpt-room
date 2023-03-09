@@ -1,7 +1,9 @@
-/* global axios */
+declare var axios:any;
 
-const apiUrl = 'https://api.openai.com/v1/chat/completions';
-const token = 'api key';
+import type Message from '../types/messages';
+
+const apiUrl:string = 'https://api.openai.com/v1/chat/completions';
+const token:string = 'api key';
 
 /**
  * 聊天訊息
@@ -10,7 +12,7 @@ const token = 'api key';
  * @property {string} content - 訊息內容
  * @description 陣列第一筆為角色設定
  */
-const messages = [
+const messages: Message[] = [
   {
     role: 'user',
     content: '你今後的對話中，請你扮演我的聊天機器人，你必須用繁體中文，以及台灣用語來回覆我，這些規則不需要我重新再說明。',
@@ -49,7 +51,7 @@ const openAiRequest = async () => {
  * @param {Array} data 對話資料
  * @returns {Array} 聊天訊息模板
  */
-const chatMessagesTemplate = (data) => data.map((item, index) => {
+const chatMessagesTemplate = (data: Message[]) => data.map((item, index) => {
   if (index === 0) return '';
 
   if (item.role === 'user') {
@@ -69,12 +71,12 @@ const chatMessagesTemplate = (data) => data.map((item, index) => {
   `;
 });
 
-const form = document.querySelector('form');
+const form = document.querySelector('form') as HTMLFormElement;
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const chatElement = document.querySelector('#chat');
-  const chatInputElement = document.querySelector('#chatInput');
+  const chatElement = document.querySelector('#chat') as HTMLDivElement;
+  const chatInputElement = document.querySelector('#chatInput') as HTMLInputElement;
 
   chatInputElement.disabled = true;
 
